@@ -1,18 +1,19 @@
 import React from 'react';
-import Header from './Header';
-import Portfolio from './Portfolio';
-import Footer from './Footer';
-import Skills from './Skills';
+import Header from './components/Header';
+import Github from './components/Github';
+import CertificateListProps from './components/CertificateListProps';
+import MyProfile from './components/MyProfile';
+import './assets/Scrollbar.css'
 
 const App: React.FC = () => {
   return (
     <div className="App flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <Portfolio />
-        <Skills />
+        <MyProfile />
+        <CertificateListProps />
+        <Github />
       </main>
-      <Footer />
     </div>
   );
 };
