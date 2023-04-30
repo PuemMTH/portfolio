@@ -7,7 +7,7 @@ import './assets/Scrollbar.css'
 
 const App: React.FC = () => {
   return (
-    <div className="App flex flex-col min-h-screen">
+    <div className="App flex flex-col min-h-screen bg-slate-400">
       <Header />
       <main className="flex-grow">
         <MyProfile />

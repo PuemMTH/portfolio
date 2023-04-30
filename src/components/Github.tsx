@@ -52,23 +52,23 @@ const Portfolio: React.FC = () => {
 
   return (
     <div className='container mx-auto py-12'>
-      <h1 className='text-4xl font-bold mb-8'>My GitHub</h1>
+      <h1 className='text-4xl font-bold mb-8' style={{ color: '#F9FAFB' }}>My GitHub</h1>
       <div className='mb-8'>
         {languages.map((language, index) => (
           <button
             key={index}
             className={`cursor-pointer font-semibold py-2 px-4 rounded mr-2 mb-2 ${
               selectedLanguage === language
-                ? "bg-blue-500 text-white"
-                : "bg-white text-blue-500 border border-blue-500"
-            }`}
+                ? "bg-gradient-to-tl text-white shadow-md rounded hover:shadow-lg transition-shadow"
+                : "bg-white text-blue-500 border border-blue-500 shadow-md rounded hover:shadow-lg transition-shadow"
+              }`}
             onClick={() => sortProjectsByLanguage(language)}
             >
             {language}
           </button>
         ))}
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {loading ? (
           Array.from({ length: 6 }, (_, i) => (
             <div key={i} className='bg-white shadow-md rounded p-6 hover:shadow-lg transition-shadow'>
@@ -80,24 +80,43 @@ const Portfolio: React.FC = () => {
           ))
         ) : projects.length > 0 ? (
           projects.map((project, index) => (
+            // <div
+            //   key={index}
+            //   className='bg-white shadow-md rounded p-6 hover:shadow-lg transition-shadow'
+            // >
+            //   <h2 className='text-2xl font-semibold mb-2'>{project.name}</h2>
+            //   <p className='mb-4 line-clamp-1'>{project.description}</p>
+            //   <p className='mb-4 font-semibold'>
+            //     {project.language || "Unknown"}
+            //   </p>
+            //   <a
+            //     href={project.html_url}
+            //     target='_blank'
+            //     rel='noopener noreferrer'
+            //     className='text-blue-500 hover:text-blue-700 font-medium'
+            //   >
+            //     View project on GitHub
+            //   </a>
+            // </div>
             <div
               key={index}
-              className='bg-white shadow-md rounded p-6 hover:shadow-lg transition-shadow'
+              className=" bg-white shadow-md rounded p-6 hover:shadow-lg transition-shadow"
             >
-              <h2 className='text-2xl font-semibold mb-2'>{project.name}</h2>
-              <p className='mb-4 line-clamp-1'>{project.description}</p>
-              <p className='mb-4 font-semibold'>
+              <h2 className="text-2xl font-semibold mb-2">{project.name}</h2>
+              <p className="mb-4 line-clamp-1">{project.description}</p>
+              <p className="mb-4 font-semibold">
                 {project.language || "Unknown"}
               </p>
               <a
                 href={project.html_url}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-blue-500 hover:text-blue-700 font-medium'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-700 font-medium"
               >
                 View project on GitHub
               </a>
             </div>
+
           ))
         ) : (
           <div className='col-span-full'>
